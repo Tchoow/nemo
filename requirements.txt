@@ -1,0 +1,4 @@
+pytorch
+norse
+fastapi
+uvicorn

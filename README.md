@@ -4,7 +4,7 @@
 # Lundi 10/06
 - [ ] Connecteur Roblox Studio Pytorch (Théo)
 - [ ] Pooc pytorch X norse (Paul)
-- [ ] Modeliser labyrinth sur roblox studio (Théo x Paul)
+- [X] Modeliser labyrinth sur roblox studio (Théo x Paul)
 
 # 
 - [ ] Modéliser Robot Roblox studio avec vision ()
