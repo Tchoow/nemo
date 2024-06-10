@@ -1,20 +1,5 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
 import random
 import numpy as np
-
-app = FastAPI()
-
-class Data(BaseModel):
-    message: str
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-@app.post("/send")
-def send_data(data: Data):
-    return {"received_message": data.message}
 
 def get_random_cell(m, n):
     return (np.random.randint(0, m), np.random.randint(0, n))
@@ -29,7 +14,7 @@ def generate_vertical_walls(m, n):
 def generate_horizontal_walls(m, n):
     return np.ones((m, n - 1))
 
-def generate_maze_internal(m, n):
+def generate_maze(m, n):
     cases = generate_cases(m, n)
     vwalls = generate_vertical_walls(m, n)
     hwalls = generate_horizontal_walls(m, n)
@@ -72,14 +57,3 @@ def generate_maze_internal(m, n):
         steps += 1
 
     return (vwalls.tolist(), hwalls.tolist())
-
-@app.get("/generate_maze")
-def generate_maze():
-    WIDTH = 10
-    HEIGHT = 10
-    v, h = generate_maze_internal(WIDTH, HEIGHT)
-    return {"Vertical walls": v, "Horizontal walls": h}
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -2,3 +2,4 @@ pytorch
 norse
 fastapi
 uvicorn
+matplotlib
