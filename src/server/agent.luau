@@ -15,15 +15,20 @@ end
 
 local Agent = {}
 
-function Agent.new(maze)
+function Agent.new(maze, speed)
     local self = setmetatable({}, {__index = Agent})
 
     -- Variables
     local agent       = Nemo:Clone()
     self.agent        = agent
     self.Lidar        = Lidar.new(self.agent, 8, 10, 0.4)
-    self.agent.Parent = workspace:WaitForChild("Agents")
+    self.agent.Parent = game.Workspace:WaitForChild("Agents")
     self.maze         = maze
+
+    self.agent.Head.BrickColor = BrickColor.random()
+
+    -- Set speed
+    self.agent.Humanoid.WalkSpeed = speed
 
 
     teleportRigIntoMaze(self.agent, maze)

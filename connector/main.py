@@ -158,8 +158,8 @@ def get_accessible_positions(vwalls, hwalls, start):
 
 @app.get("/generate_maze")
 def generate_maze():
-    WIDTH = 10
-    HEIGHT = 10
+    WIDTH  = 3
+    HEIGHT = 3
     v, h = generate_maze_internal(WIDTH, HEIGHT)
     exit_position = create_exit(v, h)
 

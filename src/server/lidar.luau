@@ -18,12 +18,12 @@ end
 
 function Lidar:initializeLidarParts()
     for i = 1, self.numRays do
-        local rayPart = Instance.new("Part")
-        rayPart.Anchored = true
+        local rayPart      = Instance.new("Part")
+        rayPart.Anchored   = true
         rayPart.CanCollide = false
-        rayPart.Size = Vector3.new(0.2, 0.2, self.maxDistance)
-        rayPart.Color = Color3.new(0, 1, 0) -- Vert par défaut
-        rayPart.Parent = workspace
+        rayPart.Size       = Vector3.new(0.2, 0.2, self.maxDistance)
+        rayPart.Color      = Color3.new(0, 1, 0) -- Vert par défaut
+        rayPart.Parent     = workspace
         rayPart.Transparency = 0.8
         table.insert(self.lidarParts, {part = rayPart, isObstacle = false})
     end
